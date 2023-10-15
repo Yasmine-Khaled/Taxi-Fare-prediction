@@ -1,5 +1,5 @@
 # Taxi-Fare-prediction
-This project aims to predict taxi fares in New York City based on various features such as pickup and drop-off locations, distance, and other relevant factors. The predictive model is built using machine learning techniques to assist taxi users and drivers in estimating fares for their journeys.
+ Taxi Fare prediction aims to predict taxi fares in New York City based on various features such as pickup and drop-off locations, distance, and other relevant factors. The predictive model is built using machine learning techniques to assist taxi users and drivers in estimating fares for their journeys.
 ## View the Results
 **The results of the project, including visualizations and analysis, can be found in the Kaggle Notebook:**
 https://www.kaggle.com/code/yasmine5aled/nyc-taxi-fare-prediction 
