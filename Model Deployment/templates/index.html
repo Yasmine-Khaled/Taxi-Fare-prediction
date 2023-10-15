@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>NYC Taxi</title>
+
+        <title>NYC Taxi</title>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+}
+
+.background-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("{% static 'images/bg.png' %}");
+  background-size: cover;
+  background-position: center;
+}
+</style>
+</head>
+<body class="">
+    <!-- top page -->
+        <div class="background-container">
+            <div>
+            <nav>
+                <a href="#home" style="  color:darkgoldenrod;">Home</a>
+                <a href="#signup">Sign up</a>
+                <a href="#about">About US</a>
+                <a href="#reviews">Reviews</a>
+            </nav>
+            </div>
+            <div class="container" id="home">
+                <div class="row">
+                    
+                    <div class="row2">
+
+                            <div class="col-4 offset-8 text">
+                                <div class="Txt">
+                                    <h1 class="title">Find Your Taxi </h1>
+
+                                </div>
+
+                                <h4>Fast affordable secure</h4>
+                                <p style="color: darkgray;">
+                                    NYC Taxi is a premier transportation service dedicated to providing reliable and comfortable travel experiences. With a modern fleet and professional drivers, we offer point-to-point transfers, airport shuttles, corporate accounts, and city tours. Our commitment to reliability, safety, and customer satisfaction sets us apart.
+                                </p>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+           
+        </div>
+<!-- end -->
+<div class="container-fluid " id="signup">
+    <div class="row ">
+<div class="col-5 imgg" style="margin: 50px;">
+    <img style="width: 95%;" src="{% static 'images/login2.png' %}" alt="">
+
+</div>
+<div class="col-6 form">
+    <div class="sign">
+        <h1>Sign up</h1>
+    </div>
+<form action="order">
+    <div class="col-8">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+      </div>
+  <div class="col-8">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  <div class="col-8">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" required>
+  </div>
+  <br>
+ <div>
+    <input type="submit" value="Sign up" class="btn btn-primary">
+  <!-- <button onclick="redirectToOrder()" type="submit" class="btn btn-primary" >Sign up</button> -->
+</div>
+</form>
+</div>
+    </div>
+</div>
+    <div class="container" id="about">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="Txt" style="font-weight: bolder;">
+                            <h1>About <br> Taxi company </h1>        
+                        </div>
+                        <p>
+                          NYC Taxi is a premier transportation service dedicated to providing reliable and comfortable travel experiences. With a modern fleet and professional drivers, we offer point-to-point transfers, airport shuttles, corporate accounts, and city tours. Our commitment to reliability, safety, and customer satisfaction sets us apart. Choose NYC Taxi for a trustworthy and enjoyable journey.
+                        </p>
+                        <a href="#app" class="btn btn-outline-dark">Read More</a>
+                    </div>
+                    <div class="col div1">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-6 div2">
+                    
+                </div>
+                <div class="col-4">
+                    <!-- src="./../images/pngimg.com - taxi_PNG16.png" -->
+                    <img alt="taxi" src="{% static 'images/pngimg.com - taxi_PNG16.png' %}"  width="650">
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 3 -->
+<div class="bg5" id="app">
+    <div class="container banner">
+               <div class="row">
+                 <div class="col"> 
+                    <!-- src="./../images/3d-pin-point-map-gps-3d-rendering-png.png" -->
+                   <img id="phone" class="w-75" src="{% static 'images/3d-pin-point-map-gps-3d-rendering-png.png' %}"  alt="">
+                 </div>
+                 <div class="col info">
+                   <h1 style="font-weight: 700;">YOUR RIDE ONE TOUCH AWAY</h1>
+                   <h1>______</h1>
+                   <h3 style="font-weight: 500;">DOWNLOAD THE APP</h3>
+                   <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi porro ipsum officiis harum dolorem, totam et ipsam laudantium. Quasi, nam! Animi tempora</P>
+                   <h5>Download App to Your IPHONE,IPAD & ANDROID</h5>
+                   <h>NOW AVAILABLE ON :</h5>
+                    <br>
+                   <img src="{% static 'images/ee0e6fd4d6ad3283ce1b38e28481a51cb25a9dac.png' %}" alt="">
+                 </div>
+               </div>
+       
+   </div>
+   <div class="ft-cont">
+   <div class="footer">
+          <img src="{% static 'images/c187e89fdc9e7af72fbd8b88a3c13731.jpg' %}" alt="">
+         <div class="centered">
+         <div class="container text-center">
+            <div class="row ">
+                <h4 style="color: black; margin-bottom: 30px ; font-weight: 700;">How It Works</h4>
+
+                <div class="col-3 " > 
+
+               <div class="xd" style="text-align: right;">   <div class="cr"></div><div class="cr"><img src="{% static 'images/circle-1.png' %}" alt=""></div>
+                   <h5 >Book in just 2 Taps</h5>
+                
+               </div>
+                   
+                   <p>Key in your pick-up and drop-off locations to get your avallable driver estimated fare</p>
+                   </div>
+               <div class="col-3 "> 
+                   <div class="xd">   <div class="cr"><img src="{% static 'images/right-arrow.png' %}" alt=""></div><div class="cr"><img src="{% static 'images/circle-2.png' %}" alt=""></div>
+                       <h5>Get a Driver</h5>
+                    
+                   </div>
+                       
+                       <p>Grab will find you the nearest
+                        avallable driver</p>
+                       </div>
+                  
+                   <div class="col-3 "> 
+                   <div class="xd">   <div class="cr"><img src="{% static 'images/right-arrow.png' %}" alt=""></div><div class="cr"><img src="{% static 'images/circle-3.png' %}" alt=""></div>
+                       <h5>Track Your Driver</h5>
+                    
+                   </div>
+                       
+                       <p>Know your driver's location and
+                        estimated time of arrivalin
+                        real-time.</p>
+                       </div>
+                       <div class="col-3  "> 
+                           <div class="xd">   <div class="cr"><img src="{% static 'images/right-arrow.png' %}" alt=""></div><div class="cr"><img src="{% static 'images/number-four.png' %}" alt=""></div>
+                               <h5>Arrive Safely</h5>
+                            
+                           </div>
+                               
+                               <p>Share your trip details with
+                                loved ones tor added safety or
+                                even just to let them know
+                                you re on your way.</p>
+                               </div>
+          </div>
+       </div>
+     
+   </div>
+   </div>
+   <!-- end -->
+    <!-- start second page -->
+    <div class="second-page" id="reviews">
+        <h1>Customer reviews</h1>
+        <div class="cards-container">
+            <div class="card">
+                <section>
+                    <span>”</span>
+                     Took a yellow cab from Times Square to JFK.
+                     The driver was friendly and knew the quickest route to the airport. Cab was clean,
+                     but the payment machine was a bit finicky. Overall, a smooth and quick ride!
+                    <span>“</span>
+                </section>
+
+                <section>
+                    <div class="image" ></div>
+                    <span>
+                        <div class="name">Yasmine khaled</div>
+                        <div class="tit">Developer </div>
+                    </span>
+                </section>
+            </div>
+
+            <div class="card">
+                <section>
+                    <span>”</span>
+                    I've been using NYC taxis for years, and I've always had positive experiences.
+                    The drivers are knowledgeable, and the cabs are generally clean. Recently,
+                     I left my phone in the cab, and the driver went out of his way to return it. Excellent service!
+                    <span>“</span>
+                </section>
+
+                <section>
+                    <div class="image"></div>
+                    <span>
+                        <div class="name">Ahmed Esmail</div>
+                        <div class="tit">Developer</div>
+                    </span>
+                </section>
+            </div>
+
+            <div class="card">
+                <section>
+                    <span>”</span>
+                    Had a terrible experience with a cab near Central Park.
+                    The driver was rude and didn't seem to know the city well.
+                     The cab itself was old and had an odd smell.I would recommend using ride-sharing apps for a better experience.
+                    <span>“</span>
+                </section>
+
+                <section>
+                    <div class="image"></div>
+                    <span>
+                        <div class="name">Youssef Ali</div>
+                        <div class="tit">Developer </div>
+                    </span>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- end second page -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+<script>
+    function redirectToOrder() {
+        window.location.href = 'order.html';
+    }
+            function submitForm(event) {
+            event.preventDefault();
+
+            var nameValue = document.getElementById('nameInput').value;
+
+            // Redirect to order.html with name as a query parameter
+            window.location.href = 'order.html?name=' + encodeURIComponent(nameValue);
+        }
+</script>
+
+</body>
+</html>

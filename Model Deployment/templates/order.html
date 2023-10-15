@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <!-- Include Leaflet CSS -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+/>
+
+<!-- Include Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>NYC Taxi order</title>
+</head>
+<body>
+        <div class="container-fluid ">
+<div class="row">
+<div class="col-7 wel">
+<img src="{% static 'images/taxi-app.gif' %}" alt="" style="width: 90%; height:90% ;">
+</div >
+<div class="col-5" style="text-align: left;">
+<h1 class="hello" >Hello {{name}}!</h1>
+<!-- id="outputParagraph" -->
+<p >You are now able to book your Taxi in New York City online with Talixo. Our quality proven drivers take care of you and make sure you arrive safe and relaxed at your destination , you can order a taxi to a chosen address or your current location and be picked up in just a few minutes.</p>
+<a href="#book" class="btn btn-primary"> Click Here to Book</a>
+</div>
+</div>
+</div>
+     
+    </div>
+    <div class="container-fluid order" id="book">
+        <div class="row ">
+            <div class="col-6 form2">
+                <form action="ticket">
+                    <div class="mb-1 col-10">
+                        <label for="fromAddress" class="form-label">Where from?</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" id="pickup" name="pickup" placeholder="Enter pickup location" required>
+                    </div>
+                    <div class="mb-1 col-10">
+                        <label for="toAddress" class="form-label">Where to?</label>
+                        <input type="text" class="form-control"  aria-describedby="emailHelp" id="dropoff" name="dropoff"  placeholder="Enter drop off location" required>
+                    </div>
+                    <div class="mb-1 col-10">
+                        <label for="toAddress" class="form-label">Payment Method</label>
+                        <div class="row radio-group">
+
+                        <div class="col-1 radio" ><img class="img" src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/></div>
+                        <div class="col-1 radio"><img  class="img" src="https://img.icons8.com/color/48/000000/visa.png"/></div>
+                    </div>
+                    
+                    </div>
+                    <div class="mb-1 col-10">
+                        <label for="toAddress" class="form-label">Passenger Count</label>
+                    <select class="form-select  mb-1" aria-label="Default select example" name="passenger_count">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+
+                      </select>
+                    </div>
+                    <div class="mb-1 col-10" style="margin-top: 10px; margin-bottom: 10px;">
+                        <input type="checkbox" id="termsCheckbox" required>
+                        <label for="termsCheckbox">I agree to the terms and conditions</label>
+                    </div>
+                    <input type="submit" value="Confirm" class="btn btn-primary">
+                    <!-- <button onclick="redirectToOrder()" type="submit" class="btn btn-primary">Confirm</button> -->
+                </form>
+            </div>
+            <div class="col-6">
+                <div id="map"></div>
+
+            </div>
+        </div>
+    </div>
+    <div id="pickupCoordinates" style="color: black;"></div>
+    <div id="dropoffCoordinates" style="color: black;"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const map = L.map('map').setView([0, 0], 2); // Default view
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            const control = L.Routing.control({
+                waypoints: [
+                    L.latLng(0, 0), // Placeholder for pickup location
+                    L.latLng(0, 0)  // Placeholder for drop-off location
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+
+            document.getElementById('pickup').addEventListener('input', function () {
+                const pickupLocation = document.getElementById('pickup').value;
+                geocodeAndSetWaypoint(pickupLocation, 0, control);
+            });
+
+            document.getElementById('dropoff').addEventListener('input', function () {
+                const dropoffLocation = document.getElementById('dropoff').value;
+                geocodeAndSetWaypoint(dropoffLocation, 1, control);
+            });
+
+            function geocodeAndSetWaypoint(location, index, control) {
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${location}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            const [firstResult] = data;
+                            const { lat, lon } = firstResult;
+
+                            control.spliceWaypoints(index, 1, L.latLng(lat, lon));
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        });
+    </script>
+    <script>
+      
+      </script>
+          <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var userName = urlParams.get('name');
+    
+            document.getElementById('outputParagraph').innerText = 'Name: ' + userName;
+            function redirectToOrder() {
+        window.location.href = 'ticket.html';
+    }
+
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                // Radio button click event
+                $('.radio-group .radio').click(function(){
+                    $(this).parent().find('.radio').removeClass('selected');
+                    $(this).addClass('selected');
+                });
+            });
+        </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const map = L.map('map').setView([0, 0], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const control = L.Routing.control({
+            waypoints: [
+                L.latLng(0, 0),
+                L.latLng(0, 0)
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
+
+        // Add a listener for when the route is changed
+        control.on('routeselected', function (e) {
+            const route = e.route;
+            const pickupLatLng = route.waypoints[0].latLng;
+            const dropoffLatLng = route.waypoints[1].latLng;
+
+            // Access latitude and longitude
+            const pickupLongitude = pickupLatLng.lng;
+            const pickupLatitude = pickupLatLng.lat;
+            const dropoffLongitude = dropoffLatLng.lng;
+            const dropoffLatitude = dropoffLatLng.lat;
+
+            // Update the content of the div elements
+            document.getElementById('pickupCoordinates').innerText = `Pickup Coordinates: ${pickupLatitude}, ${pickupLongitude}`;
+            document.getElementById('dropoffCoordinates').innerText = `Drop-off Coordinates: ${dropoffLatitude}, ${dropoffLongitude}`;
+        });
+
+
+    });
+</script>
+
+          
+</body>
+</html>
