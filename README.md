@@ -18,4 +18,4 @@ https://www.kaggle.com/code/yasmine5aled/nyc-taxi-fare-prediction
 ![Order](https://github.com/Yasmine-Khaled/Taxi-Fare-prediction/assets/89998528/345ad5ac-a35d-45c4-8a48-97a52b4bd486)
 9. **Prediction Page:**
 ![Ticket](https://github.com/Yasmine-Khaled/Taxi-Fare-prediction/assets/89998528/0a8f014a-ca59-42a3-9377-e34b9a399929)
-Feel free to reach out with any questions or suggestions!
+**Feel free to reach out with any questions or suggestions!**
